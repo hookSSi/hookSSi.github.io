@@ -2,25 +2,37 @@
 layout: post
 ---
 
-머신 러닝 개요
+## 개요
+- [개요](#개요)
+- [서론](#서론)
+- [중론](#중론)
 
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [The start](#the-start)
-- [The middle](#the-middle)
-- [The end](#the-end)
+머신러닝에 대한 대략적인 정리를 해보자
 
-한글 입력 테스트
+## [서론](#서론)
 
-## [The start](#the-start)
+머신러닝의 어려움은 대부분 데이터에서 온다.
 
-Fusce non velit cursus ligula mattis convallis vel at metus. Sed pharetra tellus massa, non elementum eros vulputate non. Suspendisse potenti. Quisque arcu felis, laoreet vel accumsan sit amet, fermentum at nunc. Sed massa quam, auctor in eros quis, porttitor tincidunt orci. Nulla convallis id sapien ornare viverra. Cras nec est lacinia ligula porta tincidunt. Nam a est eget ligula pellentesque posuere. Maecenas quis enim ac risus accumsan scelerisque. Aliquam vitae libero sapien. Etiam convallis, metus nec suscipit condimentum, quam massa congue velit, sit amet sollicitudin nisi tortor a lectus. Cras a arcu enim. Suspendisse hendrerit euismod est ac gravida. Donec vitae elit tristique, suscipit eros at, aliquam augue. In ac faucibus dui. Sed tempor lacus tristique elit sagittis, vitae tempor massa convallis.
+다음 3가지가 주요 원인이다.
 
-## [The middle](#the-middle)
+* 데이터 편향 
 
-Proin quis velit et eros auctor laoreet. Aenean eget nibh odio. Suspendisse mollis enim pretium, fermentum urna vitae, egestas purus. Donec convallis tincidunt purus, scelerisque fermentum eros sagittis vel. Aliquam ac aliquet risus, tempus iaculis est. Fusce molestie mauris non interdum hendrerit. Curabitur ullamcorper, eros vitae interdum volutpat, lacus magna lacinia turpis, at accumsan dui tortor vel lectus. Aenean risus massa, semper non lectus rutrum, facilisis imperdiet mi. Praesent sed quam quis purus auctor ornare et sed augue. Vestibulum non quam quis ligula luctus placerat sed sit amet erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce auctor, sem eu volutpat dignissim, turpis nibh malesuada arcu, in consequat elit mauris quis sem. Nam tristique sit amet enim vel accumsan. Sed id nibh commodo, dictum sem id, semper quam.
+확보된 데이터가 대표하는 모집단의 분포를 반영하지 못하고 일부의 특성만을 가지고 있는 경우
 
-## The end
+* 부정확성 
 
-Donec ex lectus, tempus non lacinia quis, pretium non ipsum. Praesent est nunc, rutrum vel tellus eu, tristique laoreet purus. In rutrum orci sit amet ex ornare, sit amet finibus lacus laoreet. Etiam ac facilisis purus, eget porttitor odio. Suspendisse tempus dolor nec risus sodales posuere. Proin dui dui, mollis a consectetur molestie, lobortis vitae tellus. Vivamus at purus sed urna sollicitudin mattis. Mauris lacinia libero in lobortis pulvinar. Nullam sit amet condimentum justo. Donec orci justo, pharetra ut dolor non, interdum finibus orci. Proin vitae ante a dui sodales commodo ac id elit. Nunc vel accumsan nunc, sit amet congue nunc. Aliquam in lacinia velit. Integer lobortis luctus eros, in fermentum metus aliquet a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+데이터의 품질이 낮아 많은 오류와 이상치, 잡음을 포함하고 있는 경우이다.
 
+* 무관함 
+
+데이터는 많이 확보했지만, 이 데이터가 담고 있는 특성들이 학습하려고 하는 문제와는 무관한 데이터
+
+따라서 이러한 문제를 해결하는 것이 머신러닝에서 주로 이루어지는 일이 될 것이다.
+
+## [중론](#중론)
+
+서론에서 이야기한 문제에 대한 해결방안은 보통 학습 방법론, loss function 설계 등으로 해결하는 듯하다.
+
+나는 loss function 설계에 대해 공부를 하기로 하였기에 어느 정도 수학 지식이 필요하다.
+
+머신러닝에서 주요 활용되는 걸로는 선형대수학, 통계학 등이 있다.
