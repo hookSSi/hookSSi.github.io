@@ -4,8 +4,8 @@ layout: post
 
 ## 개요
 - [개요](#개요)
-- [손실 함수(Loss function)](#손실_함수(Loss_function)란?)
-- [Loss function 종류](#Loss_function_종류)
+- [손실 함수(Loss function)](#손실-함수(Loss-function)란?)
+- [Loss function 종류](#Loss-function-종류)
 
 
 ## 손실 함수(Loss function)란?

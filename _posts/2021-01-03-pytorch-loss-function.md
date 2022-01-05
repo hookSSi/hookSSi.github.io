@@ -35,7 +35,7 @@ pytorch 기준이기 때문에 입력으로 넣는 형태에 따라 계산이 �
 또한 대부분의 함수들은 reduction이라는 옵션을 통해 loss를 합으로 낼지 합평균으로 낼지 선택할 수 있습니다.
 
 
-## [L1Loss](#L1Loss)
+## L1Loss
 
 ```python
 torch.nn.L1Loss(size_average=None, reduce=None, reduction='mean')
@@ -49,7 +49,7 @@ $$
 \ell(x, y) = L = \{ l_1, \dots, 1_N \}^T, \quad l_n \left| x_n - y_n \right|
 $$
 
-## [MSELoss](#MSELoss)
+## MSELoss
 
 ```python
 torch.nn.MSELoss(size_average=None, reduce=None, reduction='mean')
@@ -63,7 +63,7 @@ $$
 \ell(x, y) = L = \{ l_1, \dots, 1_N \}^T, \quad l_n \left( x_n - y_n \right)^2
 $$
 
-## [CrossEntropyLoss](#CrossEntropyLoss)
+## CrossEntropyLoss
 
 ```python
 torch.nn.CrossEntropyLoss(weight=None, size_average=None, ignore_index=- 100, reduce=None, reduction='mean', label_smoothing=0.0)
@@ -99,7 +99,7 @@ $$
 입력에 따로 소프트맥스 함수 처리를 하지 않아도 됩니다.
 
 
-## [CTCLoss](#CTCLoss)
+## CTCLoss
 
 ```python
 torch.nn.CTCLoss(blank=0, reduction='mean', zero_infinity=False)
@@ -125,7 +125,7 @@ $$
 
 pytorch에서는 입력으로 log softmax한 값을 요구합니다.
 
-## [NLLLoss](#NLLLoss)
+## NLLLoss
 
 ```python
 torch.nn.NLLLoss(weight=None, size_average=None, ignore_index=- 100, reduce=None, reduction='mean')
@@ -145,7 +145,7 @@ LogSoftmax한 값을 입력 받기 때문에 마지막 층에 LogSoftmax 층을 
 
 즉 정리하면 pytorch에서는 NLLLoss + LogSoftmax 층은 CrossEntrophyLoss와 같은 역할을 합니다.
 
-## [PoissonNLLLoss](#PoissonNLLLoss)
+## PoissonNLLLoss
 
 ```python 
 torch.nn.PoissonNLLLoss(log_input=True, full=False, size_average=None, eps=1e-08, reduce=None, reduction='mean')
@@ -221,9 +221,9 @@ $$
 \end{aligned}
 $$
 
-## [GaussianNLLLoss](#GaussianNLLLoss)
+## GaussianNLLLoss
 
-## [KLDivLoss](#KLDivLoss)
+## KLDivLoss
 
 ```python
 torch.nn.KLDivLoss(size_average=None, reduce=None, reduction='mean', log_target=False)
@@ -238,7 +238,7 @@ $$
         l_n = y_n \cdot \left( \log y_n - x_n \right)
 $$
 
-## [BCELoss](#BCELoss)
+## BCELoss
 
 ```python
 torch.nn.BCELoss(weight=None, size_average=None, reduce=None, reduction='mean')
@@ -257,7 +257,7 @@ $y_n = 0$ 이거나 $(1-y_n) = 0$ 일 경우 결과 값이 $-\infin$가 될 수 
 
 이럴 경우 -100으로 clamp를 합니다.
 
-## [BCEWithLogitsLoss](#BCEWithLogitsLoss)
+## BCEWithLogitsLoss
 ```python
 torch.nn.BCEWithLogitsLoss(weight=None, size_average=None, reduce=None, reduction='mean', pos_weight=None)
 ```
@@ -272,7 +272,7 @@ $$
         + (1 - y_n) \cdot \log (1 - \sigma(x_n)) \right]
 $$
 
-## [MarginRankingLoss](#MarginRankingLoss)
+## MarginRankingLoss
 
 ```python
 torch.nn.MarginRankingLoss(margin=0.0, size_average=None, reduce=None, reduction='mean')
@@ -284,7 +284,7 @@ $$
 
 유사도 학습([Metric Learning](#https://kmhana.tistory.com/14))을 위한 loss인 듯 하다.
 
-## [HingeEmbeddingLoss](#HingeEmbeddingLoss)
+## HingeEmbeddingLoss
 
 ```python
 torch.nn.HingeEmbeddingLoss(margin=1.0, size_average=None, reduce=None, reduction='mean')
@@ -299,13 +299,13 @@ l_n = \begin{cases}
 \end{cases}
 $$
 
-## [MultiLabelMarginLoss](#MultiLabelMarginLoss)
+## MultiLabelMarginLoss
 
 ```python
 torch.nn.MultiLabelMarginLoss(size_average=None, reduce=None, reduction='mean')
 ```
 
-## [HuberLoss](#HuberLoss)
+## HuberLoss
 
 ```python
 torch.nn.HuberLoss(reduction='mean', delta=1.0)
@@ -315,43 +315,43 @@ MSE 보다 데이터의 이상 값에 덜 민감하며 기본적으로 MAE이며
 
 오차가 작으면 MSE로 계산하는 방식입니다.
 
-## [SmoothL1Loss](#SmoothL1Loss)
+## SmoothL1Loss
 
 ```python
 torch.nn.SmoothL1Loss(size_average=None, reduce=None, reduction='mean', beta=1.0)
 ```
 
-## [SoftMarginLoss](#SoftMarginLoss)
+## SoftMarginLoss
 
 ```python
 torch.nn.SoftMarginLoss(size_average=None, reduce=None, reduction='mean')
 ```
 
-## [MultiLabelSoftMarginLoss](#MultiLabelSoftMarginLoss)
+## MultiLabelSoftMarginLoss
 
 ```python
 torch.nn.MultiLabelSoftMarginLoss(weight=None, size_average=None, reduce=None, reduction='mean')
 ```
 
-## [CosineEmbeddingLoss](#CosineEmbeddingLoss)
+## CosineEmbeddingLoss
 
 ```python
 torch.nn.CosineEmbeddingLoss(margin=0.0, size_average=None, reduce=None, reduction='mean')
 ```
 
-## [MultiMarginLoss](#MultiMarginLoss)
+## MultiMarginLoss
 
 ```python
 torch.nn.MultiMarginLoss(p=1, margin=1.0, weight=None, size_average=None, reduce=None, reduction='mean')
 ```
 
-## [TripletMarginLoss](#TripletMarginLoss)
+## TripletMarginLoss
 
 ```python
 torch.nn.TripletMarginLoss(margin=1.0, p=2.0, eps=1e-06, swap=False, size_average=None, reduce=None, reduction='mean')
 ```
 
-## [TripletMarginWithDistanceLoss](#TripletMarginWithDistanceLoss)
+## TripletMarginWithDistanceLoss
 
 ```python
 torch.nn.TripletMarginWithDistanceLoss(*, distance_function=None, margin=1.0, swap=False, reduction='mean')
