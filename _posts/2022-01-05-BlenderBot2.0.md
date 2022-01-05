@@ -13,7 +13,27 @@ layout: post
 
 2021.07 페이스북 AI에서 BlenderBot 2.0이 발표하였습니다. 기존 BlenderBot과는 무엇이 다르고 어떻게 달라질 수 있는 지 알아보겠습니다.
 
-## BlenderBot
+## Closed-domain vs Open-domain
+
+* Closed-domain
+키워드와 인텐트를 기반으로 특정 업무를 수행 ex) 병무청 Q&A 봇
+
+* Open-domain
+어떤 토픽에 대해서도 사람같이 이야기 ex) Meena, BlenderBot
+
+## End to End vs Complex Frameworks
+
+* End to End
+단일한 뉴럴 모델, 유연하고 심플한 장점이 있으나 여러 한계 노출 ex) Meena, DialoGPT
+
+* Complex Frameowrks
+기존 대부분의 접근 방식, 대화를 하기 위해 필요한 세부 모듈을 파이프라인 형태로 붙여서 만든 구조 ex) BlenderBot, Xiaoice
+
+## BlenderBot 1.0
+
+FAIR(Facebook AI Research)
+
+[Recipes for building an open-domain chatbot](https://arxiv.org/pdf/2004.13637)
 
 BlenderBot은 페이스북 AI에서 발표한 오픈 도메인 챗봇 모델로 
 
@@ -25,7 +45,9 @@ BlenderBot은 페이스북 AI에서 발표한 오픈 도메인 챗봇 모델로
 
 <center>회색: 사람, 파란색: 9.4B 모델</center>
 
-BlenderBot의 특징으로는 BST라는 데이터셋을 사용한 것인데
+## BlenderBot 1.0 데이터셋
+
+BlenderBot 1.0은 BST(Blended Skill Talk)라는 데이터셋을 사용했습니다.
 
 성격, 지식, 강조 등 모델에게 학습시키고자 하는 테스크를 선택하고 다음과 같은 BST 데이터셋으로 구성하여 훈련시킵니다.
 
@@ -34,19 +56,46 @@ BlenderBot의 특징으로는 BST라는 데이터셋을 사용한 것인데
 
 이 데이터셋에 대한 자세한 내용은 [참조](https://parl.ai/projects/bst/)
 
-하지만 한계도 있었는데
+## BlenderBot 1.0 아키텍처
 
-기존 Language generation model 들은 기억 기능이 없는 소위 Goldfish memory를 가지고 있습니다.
+[검색모델과 생성모델 개념](https://brunch.co.kr/@gentlepie/18)
 
-BlenderBot 1.0 또한 이런 문제를 가지고 있었고 14턴 이상의 긴 대화는 불가능했습니다.
+* 검색 모델
+Poly Encoder Retrieval
 
-학습되지 않은 지식에 대해서는 엉뚱한 대답을 한다던지 같은 대답을 반복하는 등 문제와
+* 생성 모델
+BART 모델
 
-윤리적으로 문제가 되는 텍스트를 필터링하지 않기 때문에 그런 방면에서 문제가 생길 가능성이 있었습니다.
+실제 학습시에는 원래 인풋으로 context만 받았기 때문에 Retrieval Next Utterance를 무시하는 경향이 있어서
+
+candidate 라벨에서 직접 찾아 온 걸로 디코더가 말하도록 학습시키기 위해 '알파 블렌딩' 도입
+
+## BlenderBot 1.0 정리
+
+* Large Corpora로 pre-training을 하는 것은 모델의 성능을 올리는데 매우 중요한 요소
+* Pre-train도 학습하고자 하는 sub-task에 맞는 데이터로 하면 성능이 올라감
+* Poly Encoder Retrieval로만 이루어진 모델
+    * 흥미로운 답변 가능하나 지정된 검색 Set으로 발화가 제한됨
+
+## BlenderBot 1.0의 한계점
+
+* Vocabulary Usage: Beam Search 기반 모델은 너무 일반적인 단어를 자주 생성하고 드문 단어를 드물게 생성
+* Nontrivial Repetition: 자신이 말한 것을 반복
+* Contradiction and Forgetfulness: Large에선 덜하지만 모순적이며 논리적 링크를 만드는 것을 잘못함
+* Knowledge and factual correctness: 사실적 오류를 만들기 쉬움
+* Conversation length and memory: 지루하고 반복적인 대화를 지속, 이전 대화를 기억하지 못함(Goldfish memory)
+* Deeper Understanding: 더 많은 대화를 통해 개념을 배울 수 있는 능력 부족, 시간, 행동, 경험에 기초할 방법이 없음
 
 ## BlenderBot 2.0
 
-BlenderBot 2.0은 기존 BlenderBot의 문제를 완전해결은 아니지만 어느 정도 문제를 다룰 수 있게 만들어졌습니다.
+BlenderBot 2.0은 기존 BlenderBot 1.0의 문제를 완전해결은 아니지만 
+
+다음의 4가지 문제를 어느 정도 개선한 모델입니다.
+
+* Contradiction and Forgetfulness: Large에선 덜하지만 모순적이며 논리적 링크를 만드는 것을 잘못함
+* Knowledge and factual correctness: 사실적 오류를 만들기 쉬움
+* Conversation length and memory: 지루하고 반복적인 대화를 지속, 이전 대화를 기억하지 못함(Goldfish memory)
+* Deeper Understanding: 더 많은 대화를 통해 개념을 배울 수 있는 능력 부족, 시간, 행동, 경험에 기초할 방법이 없음
 
 다음의 2개의 논문을 베이스로 하여
 
@@ -71,7 +120,7 @@ BlenderBot 2.0은 기존 BlenderBot의 문제를 완전해결은 아니지만 �
 ![blenderbot2.0아키텍처](https://github.com/facebookresearch/ParlAI/raw/main/projects/blenderbot2/model_diagram.jpeg)
 <center>Blenderbot 2.0 구조</center>
 
-FAIR의 [Retrieval Augmented Generation](https://hyunlee103.tistory.com/119) 이라는 연구에 기반한 모델을 사용합니다.
+[Retrieval Augmented Generation](https://hyunlee103.tistory.com/119) 이라는 연구에 기반한 모델을 사용합니다.
 
 이 방법은 Seq2seq generator와 Information Retrieval 모델을 조합한 것으로 Long-term memory와 인터넷 검색 결과 모두를 활용해서 응답을 생성합니다.
 
