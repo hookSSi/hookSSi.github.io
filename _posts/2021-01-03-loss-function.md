@@ -52,7 +52,7 @@ MAE와 달리 최적 값에 가까워질 경우 이동거리가 변화하기 때
 ### 평균 제곱근 오차(Root Mean Square Error, RMSE, )
 
 $$
-RMSE = \sqrt{{1\over N}\sum_{i=1}^{n} ( \hat{y_i} - y_i )^2}
+RMSE = \sqrt{1\over N}\sum_{i=1}^{n} ( \hat{y_i} - y_i )^2}
 $$
 
 MSE와 유사하지만 제곱된 값에 루트를 씌우기 때문에 제곱에서 생기는 왜곡이 줄어듭니다.
