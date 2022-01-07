@@ -34,6 +34,7 @@ pytorch 기준이기 때문에 입력으로 넣는 형태에 따라 계산이 �
 
 또한 대부분의 함수들은 reduction이라는 옵션을 통해 loss를 합으로 낼지 합평균으로 낼지 선택할 수 있습니다.
 
+[참조](https://www.machinecurve.com/index.php/2021/07/19/how-to-use-pytorch-loss-functions/)
 
 ## L1Loss
 
