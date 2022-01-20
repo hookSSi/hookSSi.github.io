@@ -11,5 +11,5 @@ $$
 ## Hyperbolic Tangent Function
 
 $$
-tanh(x) = {{e^x - e^{-x}} \over {e^x + e^{-x}}}
+tanh(x) = { {e^x - e^{-x}} \over {e^x + e^{-x}} }
 $$

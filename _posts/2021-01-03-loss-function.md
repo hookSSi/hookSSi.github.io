@@ -1,9 +1,6 @@
 ---
-title:  'log 와 ln'
+title:  'loss function'
 layout: post
-categories:
-  - Math
-tags: [Math]
 use_math: true
 ---
 
