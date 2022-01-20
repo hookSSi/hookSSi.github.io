@@ -1,3 +1,9 @@
+---
+layout: post
+use_math: true
+---
+
+
 # pytorch custom loss function
 
 ## pytorch의 loss function 동작 방식

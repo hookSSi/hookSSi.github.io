@@ -1,5 +1,4 @@
 ---
-title:  'loss function'
 layout: post
 use_math: true
 ---
