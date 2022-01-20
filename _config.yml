@@ -48,3 +48,10 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-soopr-seo-tag
+
+# conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false

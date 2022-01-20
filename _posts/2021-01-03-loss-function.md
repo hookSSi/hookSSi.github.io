@@ -1,6 +1,12 @@
 ---
+title:  'log 와 ln'
 layout: post
+categories:
+  - Math
+tags: [Math]
+use_math: true
 ---
+
 
 ## 개요
 - [개요](#개요)
@@ -23,7 +29,7 @@ loss function은 모델 성능에 큰 영향을 끼칠 수 있습니다.
 ### 평균 절대 오차(Mean Absolute Error, MAE, L1 Loss)
 
 $$
-MAE = {1\over N}\sum_{i=1}^{n}\vert \hat{y_i} - y_i \vert
+MAE = {1\over N}\sum_{i=1}^n\vert \hat{y_i} - y_i \vert
 $$
 
 특징으로는 전체 데이터의 학습된 정도를 쉽게 파악할 수 있으며
@@ -37,7 +43,7 @@ $$
 ### 평균 제곱 오차(Mean Square Error, MSE, L2 Loss)
 
 $$
-MSE = {1\over N}\sum_{i=1}^{n} ( \hat{y_i} - y_i )^2
+MSE = {1\over N}\sum_{i=1}^n ( \hat{y_i} - y_i )^2
 $$
 
 <p align="center"><img src="http://t1.daumcdn.net/brunch/service/user/bhYD/image/EP5vHvBE5UdlhuijUbeawJEC2Ds.PNG"></p>
@@ -49,15 +55,28 @@ MAE와 달리 최적 값에 가까워질 경우 이동거리가 변화하기 때
 단점으로는 MAE < 1일 경우 값은 적어지고 MAE > 1일 경우 값이 커지기 때문에 값의 왜곡이 있을 수 있습니다.
 
 
-### 평균 제곱근 오차(Root Mean Square Error, RMSE, )
+### 평균 제곱근 오차(Root Mean Square Error, RMSE)
 
 $$
-RMSE = \sqrt{1\over N}\sum_{i=1}^{n} ( \hat{y_i} - y_i )^2}
+RMSE = \sqrt{ {1 \over N} \sum_{i=1}^n ( \hat{y_i} - y_i )^2 }
 $$
 
 MSE와 유사하지만 제곱된 값에 루트를 씌우기 때문에 제곱에서 생기는 왜곡이 줄어듭니다.
 
 그래프는 MAE와 비슷하지만 약간의 굴곡이 있습니다.
+
+### Huber Loss
+
+$$
+l_n = \begin{cases}
+0.5 (\hat{y_n} - y_n)^2, & \text{if } |\hat{y_n} - y_n| < delta \\
+delta * (|\hat{y_n} - y_n| - 0.5 * delta), & \text{otherwise }
+\end{cases}
+$$
+
+오차의 절댓값에 따라 계산이 달라지는 Huber loss는 
+
+MSE와 MAE를 절충하기 위해 사용됩니다.
 
 ### Cross-Entropy Loss
 
@@ -68,7 +87,7 @@ Cross Entropy는 Classification 문제에서 loss를 계산할 때 주로 사용
 #### Entropy
 
 $$
-H(x) = -\sum_{i=1}^{n}p(x_i)\log p(x_i)
+H(x) = -\sum_{i=1}^np(x_i)\log p(x_i)
 $$
 
 엔트로피는 불확실성(어떤 데이터가 나올지 예측하기 어려운 것)을 수치적으로 표시해줍니다.
@@ -83,7 +102,7 @@ $$
 $$
 \begin{align}
 &H(x_{동전}) = -({1 \over 2}\log{1 \over 2} + {1 \over 2}\log{1 \over 2}) = 0.693
-\\&H(x_{주사위}) = -({1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6}) = 1.79...
+\\&H(x_{주사위}) = -({1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6} + {1 \over 6}\log{1 \over 6}) = 1.79 \dots
 \end{align}
 $$
 
@@ -92,7 +111,7 @@ $$
 #### KL-발산(Kullback-Leibler divergence)
 
 $$
-D_{KL}(p \|| q) = \sum_{x}p(x)\log{p(x) \over q(x)}
+D_{KL}(p \|| q) = \sum_{i=1}^np(x_i)\log{p(x_i) \over q(x_i)}
 $$
 
 머신러닝은 대부분 정답 분포를 모사하는 모델을 만드는 것이 목표가 됩니다.
@@ -112,7 +131,7 @@ $$ x \in \{a, b\} $$
 라고 가정하고 KL-발산을 계산하면
 $$
 \begin{align}
-D_{KL}(p||q) &= \sum_{x}p(x)\log{p(x) \over q(x)}
+D_{KL}(p||q) &= \sum_{i=1}^np(x_i)\log{p(x_i) \over q(x_i)}
 \\& = {1 \over 3}\log{1 \over 2} + {2 \over 3}\log2
 \\& = -{1 \over 3}\log2 + {2 \over 3}\log2
 \end{align}
@@ -126,7 +145,7 @@ q(x)나 p(x)나 합은 동일하게 확률값이기에 1 입니다.
 
 
 $$
-CE(p, q) = -\sum_{x}p(x) \log q(x)
+CE(p, q) = -\sum_{i=1}^np(x_i) \log q(x_i)
 $$
 
 다시 돌아와서
@@ -135,15 +154,15 @@ Cross-Entropy 식은 KL-발산 식을 조금 변형하여 얻을 수 있습니�
 
 $$
 \begin{align}
-D_{KL}(p||q) &= \sum_{x}p(x)\log{p(x) \over q(x)}
-\\& = \sum_{x}p(x) \log p(x) - \sum_{x}p(x) \log q(x)
-\\& = H(p) - \sum_{x}p(x) \log q(x)
+D_{KL}(p||q) &= \sum_{i=1}^np(x_i)\log{p(x_i) \over q(x_i)}
+\\& = \sum_{i=1}^np(x_i) \log p(x_i) - \sum_{i=1}^np(x_i) \log q(x_i)
+\\& = H(p) - \sum_{i=1}^np(x_i) \log q(x_i)
 \end{align}
 $$
 
-여기서 진분포 p 정답을 보면 답이 하나로 정해져 있습니다.
+여기서 진분포 $p$를 보면 답이 하나로 정해져 있습니다.
 
-예를 들어 입력 A의 분류 클래스가 1번이라면 다음과 같습니다
+예를 들어 입력 $A$의 분류 클래스가 1이라면 다음과 같습니다
 
 $$
 \begin{align}
@@ -157,7 +176,7 @@ $$
 KL-발산식을 다시 정리하면
 
 $$
-D_{KL}(p||q) = -\sum_{x}p(x) \log q(x) = CE(p, q)
+D_{KL}(p||q) = -\sum_{i=1}^n p(x_i) \log q(x_i) = CE(p, q)
 $$
 
 Cross-Entropy의 식이 됩니다.
@@ -169,7 +188,7 @@ Cross-Entropy의 식이 됩니다.
 ### Binary Cross-Entropy
 
 $$
-BCE = -{1 \over N} \sum_{i=0}^N y_i \cdot \log (\hat{y_i}) + (1 -  y_i) \cdot \log q(1- \hat{y_i})
+BCE = -{1 \over N} \sum_{i=1}^n y_i \cdot \log (\hat{y_i}) + (1 -  y_i) \cdot \log q(1- \hat{y_i})
 $$
 
 0, 1로 구분되는 이진 분류에 사용되는 방식입니다.
@@ -189,7 +208,10 @@ $$
 NLL = -{1 \over N} \sum_{i=0}^N \log (Softmax(x_i))
 $$
 
-단순한 형태의 loss 함수로
+
+단순히 Likelihood의 음로그를 취한 값입니다.
+
+y_i는  softmax 출력 중 가장 큰 값입니다.
 
 입력을 보통 Softmax 함수로 정제한 값을 받기 때문에 
 
@@ -231,5 +253,56 @@ $$
 ### Focal Loss
 
 $$
-FL(p_t) = -\alpha_t (1-p_t)^\gamma \log (p_t)
+FL(p_t) = -(1-p_t)^\gamma \log (p_t)
 $$
+
+Focal loss는 Cross-Entropy loss 함수의 학습 중 클래스 불균형 문제를 해결하기 위해 고안된 함수입니다.
+
+
+![focalloss](https://gaussian37.github.io/assets/img/dl/concept/focal_loss/1.png)
+
+그래프를 보면 알겠지만 focal loss는 $\gamma$ 값에 따라 `잘 예측(well-classified)`한 데이터에는 Cross-Entropy와 비교하여 패널티를 줍니다.
+
+결국 추가된 $(1-p_t)^\gamma$의 역할은 easy example에 사용되는 loss의 가중치를 줄이기 위함이라고 볼 수 있습니다.
+
+
+### Hinge Loss
+
+스코어 벡터 $s = f(x_i, W)$라고 할 때 Hinge Loss는 다음처럼 표현됩니다. 
+
+$$
+L_i = \sum_{j \neq y_i}^N \max(0, s_i - s_{y_i} + 1)
+$$
+
+SVM(Support Vector Machine)에 주로 사용되는 loss 함수입니다.
+
+
+### SVM
+
+SVM 알고리즘은 기본적으로 두 개의 그룹(데이터)를 분리하는 방법으로
+
+데이터들과 거리가 가장 먼 초평면(hyperplane)을 선택하여 분리하는 방법입니다.
+
+초평면은 두 그룹이 나누어지는 기준 경계라고 할 수 있습니다.
+
+초평면과 데이터 사이에 margin 거리를 margin이라고 하며 
+
+최적의 모델은 이 margin을 최대한 줄이는 데에 있습니다.
+
+![](https://hleecaster.com/wp-content/uploads/2020/01/svm04.png)
+
+
+### Triplet Loss
+
+$$
+L(a, p, n) = \max \{d(a_i, p_i) - d(a_i, n_i) + {\rm margin}, 0\}
+$$
+
+기본적인 아이디어는 동일한 클래스끼리 거리를 더욱 가깝게 만드는 것입니다.
+
+거리 기반 loss 함수로 Anchor(a), Positive(p), Negative(n) 세가지 input을 사용합니다.
+
+- Anchor: 입력 인코딩 벡터
+- Positive: 입력과 동일한(positive) 클래스 인코딩 벡터
+- Negative: 입력과 다른(negative) 클래스 인코딩 벡터
+
