@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: [Lab]
 use_math: true
 ---
 

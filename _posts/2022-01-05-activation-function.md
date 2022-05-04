@@ -1,3 +1,9 @@
+---
+layout: post
+categories: [Lab]
+use_math: true
+---
+
 [참고](https://reniew.github.io/12/)
 
 ## Logistic Sigmoid Function
