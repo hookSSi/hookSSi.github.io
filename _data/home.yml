@@ -5,6 +5,9 @@ navbar_entries:
   - title: blog
     url: blog
 
+  - title: translation
+    url: translation
+
 project_entries:
   - title: Project 1
     url: overview-post

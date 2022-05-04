@@ -43,7 +43,24 @@ class MAE(nn.Module):
 
 ## 체크리스트
 1. input, target의 형식
-2. grad 값이 잘 나오는지
+2. 미분값 확인
 
-# loss function 분석 방법
+# 미분값 확인 방법
+
+```python
+import torch
+
+w = torch.tensor(2.0, requires_grad=True)
+
+y = w**2
+z = 2*y + 5
+
+z.backward()
+
+# 수집한 기울기들이 올바른지 확인
+print('수식을 w로 미분한 값 : {}'.format(w.grad))
+```
+
+# 참고링크
+[Loss Function Library](https://www.kaggle.com/bigironsphere/loss-function-library-keras-pytorch)
 
