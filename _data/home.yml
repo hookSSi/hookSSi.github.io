@@ -8,11 +8,6 @@ navbar_entries:
   - title: translation
     url: translation
 
-project_entries:
-  - title: Project 1
-    url: overview-post
-    desc: This is an example project, configured in _data/home.yml
-
 footer_entries:
   - title: github
     url: https://github.com/hookssi
