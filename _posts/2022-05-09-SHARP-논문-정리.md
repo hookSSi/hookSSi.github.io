@@ -1,6 +1,6 @@
 ---
 layout: post
-categories: [ETC]
+categories: [Lab]
 use_math: true
 ---
 
