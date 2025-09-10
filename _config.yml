@@ -3,6 +3,7 @@ author: HookSSi
 url: https://hookssi.github.io/ # root address of the site
 description: > # description of the site (multiple lines allowed)
   안녕하세요! 96년생 게임 개발자 Hook입니다. 게임 개발에 관해서는 뭐든지 관심있습니다.
+  공부한 자료들을 정리하고자 블로그를 다시 활성화 시키는 중입니다.
 
 permalink: /:slug.html
 
