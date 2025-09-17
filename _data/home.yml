@@ -5,9 +5,6 @@ navbar_entries:
   - title: blog
     url: blog
 
-  - title: translation
-    url: translation
-
 footer_entries:
   - title: github
     url: https://github.com/hookssi
