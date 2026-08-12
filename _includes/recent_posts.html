@@ -1,0 +1,13 @@
+{% assign limit = include.limit | default: 5 %}
+{% if site.posts.size > 0 %}
+  <ul class="recent-list">
+    {% for post in site.posts limit: limit %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <span>{{ post.title }}</span>
+          <span class="home-date">{{ post.date | date: site.theme_config.date_format }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

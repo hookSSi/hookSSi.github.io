@@ -9,15 +9,11 @@ title: About
 
 Unity3D 엔진을 주력으로 사용하고 있는 개발자로 게임 개발에 관해서는 뭐든지 관심있습니다.
 
-순수한 프로그래머로서 클라이언트 개발에만 집중하지 않고 이펙트, 쉐이더 등 아트적인 역량에도 관심이 많습니다.
+순수한 게임 클라이언트 개발에만 집중하지 않고 이펙트, 쉐이더 등 아트적인 역량에도 관심이 많습니다.
 
 저 혼자 클라이언트를 개발하여 라이브 서비스까지 진행해본 경험이 있습니다.
 
-기본적으로 게임도 다양하게 해봤고 게임 개발에 진심입니다.
-
 https://github.com/hookssi
-
-https://steamcommunity.com/id/sounghoo12/games/?tab=all
 
 sounghoo12@gmail.com
 
@@ -63,5 +59,3 @@ Education
 Bachelor of Science in Computer Engineering
 
 Changwon National University, 2015.03 - 2022.02
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fhookssi.github.io&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
