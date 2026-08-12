@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mult X Slide 프로토타입 기획 회고"
+title: "Mult X Slide 기획 회고"
 categories: [기획]
 ---
 
