@@ -4,10 +4,9 @@ title: "Groovy Slot 기획 회고"
 categories: [기획]
 ---
 
-기간: 2026-08-03 ~ 2026-08-09
-범위: 원작의 핵심 루프 클론
+기간: 2026-08-03 ~ 2026-08-09 
 
-<iframe frameborder="0" src="https://itch.io/embed/4840874?dark=true" width="552" height="167"><a href="https://hookssi.itch.io/mult-x-slide">Mult X Slide by hookssi</a></iframe>
+범위: 원작의 핵심 루프 클론  
 
 **한줄 회고:** 출시된 Incremental 게임은 어떤 식으로 동기를 주고 플레이 경험과 연결 시키는 가?
 

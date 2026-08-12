@@ -5,7 +5,8 @@ categories: [기획]
 ---
 
 기간: 2026-07-28 ~ 2026-08-03  
-범위: 프로토타입 & 코어루프
+
+범위: 프로토타입 & 코어루프  
 
 <iframe frameborder="0" src="https://itch.io/embed/4840874?dark=true" width="552" height="167"><a href="https://hookssi.itch.io/mult-x-slide">Mult X Slide by hookssi</a></iframe>
 
