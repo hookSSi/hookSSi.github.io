@@ -30,7 +30,7 @@ layout: default
 {% if site.theme_config.show_blog == true %}
 <div class="home-section-title">
   <h2>{{ site.theme_config.home.title_blog }}</h2>
-  <a href="{{ " /blog.html" | relative_url }}">전체 보기 →</a>
+  <a href="{{ "blog.html" | relative_url }}">전체 보기 →</a>
 </div>
 {% include recent_posts.html limit=5 %}
 {% endif %}
